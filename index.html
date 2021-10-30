@@ -48,9 +48,7 @@
               >Country
               <span class="explanation">Where was the band originated?</span>
             </label>
-            <input list="countries" type="text" id="country" name="country" required />
-
-            <datalist id="countries">
+            <select id="countries">
               <option value="Afghanistan">Afghanistan</option>
               <option value="Åland Islands">Åland Islands</option>
               <option value="Albania">Albania</option>
@@ -295,7 +293,7 @@
               <option value="Yemen">Yemen</option>
               <option value="Zambia">Zambia</option>
               <option value="Zimbabwe">Zimbabwe</option>
-            </datalist>
+            </select>
           </div>
 
           <fieldset>
@@ -330,11 +328,11 @@
           </fieldset>
 
           <div class="form-group">
-            <label
+            <label for="textarea"
               >Personal thoughts
               <span>What do you think about this band?</span>
             </label>
-            <input type="textarea" name="description" placeholder="Here you can talk about the band" rows="4" cols="50" required />
+            <textarea id="textarea" placeholder="Here you can talk about the band" rows="4" cols="50" required> </textarea>
           </div>
 
           <fieldset>
@@ -373,7 +371,7 @@
         <h1></h1>
         <p class="members">Members: <span></span></p>
         <p class="country">Origin: <span></span></p>
-        <button class="delete"><img src="assets/delete.svg" alt="" /></button>
+        <button class="delete"><img src="assets/delete.svg" alt="" disabled /></button>
       </article>
     </template>
     <script src="script.js"></script>
