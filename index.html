@@ -26,21 +26,21 @@
         <form>
           <h2>BAND REGISTRATION</h2>
 
-          <div class="group form-group">
-            <input id="name" name="name" type="text" required />
+          <div class="group">
+            <input class="name" type="text" required />
             <span class="highlight"></span>
             <span class="bar"></span>
-            <label for="name">Band / Artist Name <span>Enter a band name</span></label>
+            <label class="label-name">Name</label>
           </div>
 
           <div class="form-group">
-            <label for="members">Members: <span class="explanation">Enter the number of members</span> </label>
-            <input type="number" id="members" name="members" pattern="[0-9]{,3}" min="1" max="3" inputmode="numeric" required />
+            <label for="members">Members <span class="explanation">Enter the number of members</span> </label>
+            <input type="text" id="members" name="members" pattern="[0-9]{,3}" maxlength="4" inputmode="numeric" required />
           </div>
 
           <div class="form-group">
-            <label for="members">Year formed: <span class="explanation">When did the band started?</span> </label>
-            <input type="number" id="members" name="members" pattern="[0-9]{,3}" min="1" max="3" inputmode="numeric" required />
+            <label for="year">Year formed <span class="explanation">When did the band started?</span> </label>
+            <input type="text" id="year" name="year" pattern="[0-9]{,3}" maxlength="4" inputmode="numeric" required />
           </div>
 
           <div class="form-group">
@@ -298,54 +298,61 @@
 
           <fieldset>
             <legend>Genre</legend>
-            <span>What genre is the band given? (You can select more than 1) </span>
+            <span class="explanation">What genre is the band given? (You can select more than 1) </span>
 
             <div class="form-control">
               <input type="checkbox" id="electronica" name="genre" value="electronica" checked />
-              <label for="electronica">electronica</label>
+              <label for="electronica">Electronic</label>
             </div>
 
             <div class="form-control">
               <input type="checkbox" id="alternative" name="genre" value="alternative" />
-              <label for="alternative">alternative</label>
+              <label for="alternative">Alternative</label>
             </div>
             <div class="form-control">
               <input type="checkbox" id="rock" name="genre" value="rock" />
-              <label for="rock">rock</label>
+              <label for="rock">Rock</label>
             </div>
             <div class="form-control">
               <input type="checkbox" id="punk" name="genre" value="punk" />
-              <label for="punk">punk</label>
+              <label for="punk">Punk</label>
             </div>
             <div class="form-control">
               <input type="checkbox" id="folk" name="genre" value="folk" />
-              <label for="folk">folk</label>
+              <label for="folk">Folk</label>
             </div>
             <div class="form-control">
               <input type="checkbox" id="pop" name="genre" value="pop" />
-              <label for="pop">pop</label>
+              <label for="pop">Pop</label>
             </div>
           </fieldset>
-
-          <div class="form-group">
-            <label for="textarea"
-              >Personal thoughts
-              <span>What do you think about this band?</span>
-            </label>
-            <textarea id="textarea" placeholder="Here you can talk about the band" rows="4" cols="50" required> </textarea>
-          </div>
 
           <fieldset>
             <legend>Did the band ever played in Copenhagen?</legend>
             <div class="form-control">
-              <label for="live">Yes:</label>
-              <input id="live" type="radio" name="color" />
+              <input id="yes" type="radio" name="color" />
+              <label for="yes">Yes</label>
             </div>
             <div class="form-control">
-              <label for="live">No:</label>
-              <input id="live" type="radio" name="color" />
+              <input id="no" type="radio" name="color" />
+              <label for="no">No</label>
             </div>
           </fieldset>
+
+          <div class="form-group range">
+            <label for="review">How was it?</label>
+            <div class="range-wrap">
+              <input type="range" step=".01" min="0" max="1" value=".5" id="review" name="review" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="textarea"
+              >Personal thoughts
+              <span class="explanation">What do you think about this band?</span>
+            </label>
+            <textarea id="textarea" placeholder="Express yourself as much as you like :)" rows="4" cols="50" required> </textarea>
+          </div>
 
           <div class="form-group">
             <label for="color"
