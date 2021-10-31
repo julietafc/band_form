@@ -32,12 +32,6 @@
             <span class="bar"></span>
             <label class="label-name">Name</label>
           </div>
-
-          <div class="form-group">
-            <label for="members">Members <span class="explanation">Enter the number of members</span> </label>
-            <input type="text" id="members" name="members" pattern="[0-9]{,3}" maxlength="4" inputmode="numeric" required />
-          </div>
-
           <div class="form-group">
             <label for="year">Year formed <span class="explanation">When did the band started?</span> </label>
             <input type="text" id="year" name="year" pattern="[0-9]{,3}" maxlength="4" inputmode="numeric" required />
@@ -48,7 +42,9 @@
               >Country
               <span class="explanation">Where was the band originated?</span>
             </label>
-            <select id="countries">
+            <input list="countries" type="text" id="country" name="country" required />
+
+            <datalist id="countries">
               <option value="Afghanistan">Afghanistan</option>
               <option value="Åland Islands">Åland Islands</option>
               <option value="Albania">Albania</option>
@@ -293,10 +289,10 @@
               <option value="Yemen">Yemen</option>
               <option value="Zambia">Zambia</option>
               <option value="Zimbabwe">Zimbabwe</option>
-            </select>
+            </datalist>
           </div>
 
-          <fieldset>
+          <fieldset class="genre">
             <legend>Genre</legend>
             <span class="explanation">What genre is the band given? (You can select more than 1) </span>
 
@@ -330,28 +326,28 @@
           <fieldset>
             <legend>Did the band ever played in Copenhagen?</legend>
             <div class="form-control">
-              <input id="yes" type="radio" name="color" />
+              <input id="yes" type="radio" name="live" />
               <label for="yes">Yes</label>
             </div>
             <div class="form-control">
-              <input id="no" type="radio" name="color" />
+              <input id="no" type="radio" name="live" />
               <label for="no">No</label>
             </div>
           </fieldset>
 
-          <div class="form-group range">
+          <!-- <div class="form-group range">
             <label for="review">How was it?</label>
             <div class="range-wrap">
-              <input type="range" step=".01" min="0" max="1" value=".5" id="review" name="review" />
+              <input type="range" step="1" min="0" max="5" value="3" id="review" name="review" />
             </div>
-          </div>
+          </div> -->
 
           <div class="form-group">
             <label for="textarea"
               >Personal thoughts
               <span class="explanation">What do you think about this band?</span>
             </label>
-            <textarea id="textarea" placeholder="Express yourself as much as you like :)" rows="4" cols="50" required> </textarea>
+            <textarea name="comments" id="textarea" placeholder="Express yourself as much as you like :)" rows="4" cols="50" required> </textarea>
           </div>
 
           <div class="form-group">
@@ -375,9 +371,25 @@
     </main>
     <template class="postBand">
       <article class="band">
-        <h1></h1>
-        <p class="members">Members: <span></span></p>
-        <p class="country">Origin: <span></span></p>
+        <header>
+          <h2 class="name"></h2>
+          <div class="text">
+            <p class="year"><span></span></p>
+            <p class="country"><span></span></p>
+          </div>
+        </header>
+        <p class="comments"></p>
+        <dl>
+          <div>
+            <dt>Genre:</dt>
+            <dd data-genre></dd>
+          </div>
+          <div>
+            <dt>Live in CPH:</dt>
+            <dd data-live></dd>
+          </div>
+        </dl>
+
         <button class="delete"><img src="assets/delete.svg" alt="" disabled /></button>
       </article>
     </template>

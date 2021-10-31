@@ -76,6 +76,7 @@ body {
   color: beige;
   border-radius: 5px;
   font-size: 1em;
+  cursor: pointer;
 }
 
 main {
@@ -91,20 +92,70 @@ main {
   display: grid;
   grid: auto-flow auto / repeat(auto-fit, minmax(min(100%, 160px), 1fr));
   padding-inline: max(2rem, 50vw - 600px);
-  gap: 0 2rem;
+  gap: 2rem;
 }
 
 .band {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
   box-shadow: 0 0 5px rgb(75 75 75 / 7%);
-  height: 215px;
   background-color: white;
   width: 220px;
   padding: 1em;
   border-radius: 10px;
-  margin: 1em;
+  border: 4px solid var(--band-color);
+}
+
+.band header {
+  border-bottom: 2px solid var(--band-color);
+  padding-bottom: 0.8em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.band header h2 {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+.band .text {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.band .comments {
+  text-align: center;
+  margin: 2em 0;
+}
+
+.band dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.2rem 1rem;
+  margin-bottom: 2.2em;
+}
+
+.band dt {
+  font-weight: 700;
+}
+
+.band dl > div {
+  display: contents;
+}
+
+.band li {
+  padding: 0.15rem 0.3rem;
+  border-radius: 4px;
+  background: var(--accent-color);
+  color: #fff;
+  font-size: 0.9em;
 }
 
 .delete {
@@ -113,6 +164,9 @@ main {
   width: 25px;
   height: 25px;
   cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
 .delete img {
   width: 20px;

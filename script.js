@@ -5,11 +5,13 @@ const apiKey = "617696a38597142da1745a34";
 window.addEventListener("load", (e) => {
   document.querySelector(".add-button").addEventListener("click", () => {
     const data = {
-      name: "The Smiths" + Math.floor.toFix(2),
-      members: 4,
-      country: "jofh@kea.dk",
-      alive: true,
+      name: "The Smiths" + Math.floor(Math.random() * (0 - 9)),
       year: 1999,
+      country: "Australia",
+      genre: "pop",
+      live: true,
+      comments: "Here there is some personal thoughts",
+      color: "6795A2",
     };
     post(data);
   });
@@ -43,10 +45,16 @@ function showBand(band) {
   //clone
   const copy = template.cloneNode(true);
   copy.querySelector("article").dataset.id = band._id;
+
   //adjust
-  copy.querySelector("h1").textContent = band.name;
-  copy.querySelector(".members span").textContent = band.members;
-  copy.querySelector(".country span").textContent = band.country;
+  copy.querySelector(".name").textContent = band.name;
+  copy.querySelector(".name").style.color = `#${band.color}`;
+  copy.querySelector(".year span").textContent = band.country;
+  copy.querySelector(".country span").textContent = band.year;
+  copy.querySelector(".comments").textContent = `"${band.comments}"`;
+  copy.querySelector(".band").style.setProperty("--band-color", `#${band.color}`);
+  copy.querySelector("[data-genre]").textContent = band.genre;
+  copy.querySelector("[data-live]").textContent = band.live;
 
   copy.querySelector(".delete").addEventListener("click", () => deleteIt(band._id));
 
@@ -88,11 +96,13 @@ function deleteIt(id) {
 
 function put(id) {
   const data = {
-    name: "Juli",
-    members: 4,
-    country: "jofh@kea.dk",
-    alive: true,
-    year: 1999,
+    name: "Tame Impala",
+    year: 2009,
+    country: "Australia",
+    genre: "alternative",
+    live: true,
+    comments: "Here there is some personal thoughts",
+    color: "6795A2",
   };
 
   const postData = JSON.stringify(data);
@@ -109,17 +119,18 @@ function put(id) {
     .then((data) => {
       const copy = document.querySelector(`article[data-id="${id}"]`);
       copy.querySelector("h1").textContent = data.name;
-      copy.querySelector(".members span").textContent = data.members;
       copy.querySelector(".country span").textContent = data.country;
+      copy.querySelector(".comments").textContent = data.comments;
     });
 }
 
-const form = document.querySelector("form");
-// to change content (is like text Content)
+// const form = document.querySelector("form");
+
+// // to change content (is like text Content)
 // form.elements.name.value = "Jonas";
 
 // altered HTML content
-form.elements.name.disabled = true;
+// form.elements.name.disabled = true;
 
 // other options if needed
 // form.elements.name.setAttribute("disabled", true);
