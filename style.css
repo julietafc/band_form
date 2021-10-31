@@ -158,6 +158,14 @@ main {
   font-size: 0.9em;
 }
 
+article:is(:hover, :focus-within) .delete {
+  opacity: 1;
+}
+
+.delete:active {
+  --line-stroke: #fb28a8;
+}
+
 .delete {
   border: none;
   border-radius: 50%;
@@ -426,6 +434,7 @@ button[type="submit"] {
   color: beige;
   border-radius: 5px;
   font-size: 1em;
+  cursor: pointer;
 }
 
 /* 

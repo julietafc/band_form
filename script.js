@@ -11,7 +11,7 @@ window.addEventListener("load", (e) => {
       genre: "pop",
       live: true,
       comments: "Here there is some personal thoughts",
-      color: "6795A2",
+      color: "#6795A2",
     };
     post(data);
   });
@@ -102,7 +102,7 @@ function put(id) {
     genre: "alternative",
     live: true,
     comments: "Here there is some personal thoughts",
-    color: "6795A2",
+    color: "#6795A2",
   };
 
   const postData = JSON.stringify(data);
@@ -124,10 +124,32 @@ function put(id) {
     });
 }
 
-// const form = document.querySelector("form");
+const form = document.querySelector("form");
+console.log(form.elements);
+
+form.setAttribute("novalidate", true);
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (form.checkValidity()) {
+    const data = {
+      name: form.elements.name.value,
+      year: form.elements.year.value,
+      country: form.elements.country.value,
+      genre: form.elements.genre.value,
+      live: form.elements.live.value,
+      comments: form.elements.comments.value,
+      color: form.elements.color.value,
+    };
+    console.log(data);
+    post(data, showBand);
+  } else {
+    form.reportValidity();
+  }
+});
 
 // // to change content (is like text Content)
-// form.elements.name.value = "Jonas";
+// form.elements.name.value = "Tash Sultana";
 
 // altered HTML content
 // form.elements.name.disabled = true;
@@ -141,24 +163,4 @@ function put(id) {
 // document.querySelector("a").addEventListener("click", () => {
 //   e.preventDefault();
 //   form.elements.name.focus();
-// });
-
-// using JS
-
-// form.setAttribute("novalidate", true);
-// form.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   if (form.checkValidity()) {
-//     const data = {
-//       name: form.elements.name.value,
-//       members: form.elements.memebers.value,
-//       country: form.elements.country.value,
-//       alive: form.elements.alive.value,
-//       year: form.elements.year.value,
-//     };
-//     console.log(data);
-//     post(data, showFunction);
-//   } else {
-//     form.reportValidity();
-//   }
 // });
